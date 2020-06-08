@@ -1,2 +1,2 @@
-# year-cohort-projectName
+# 2020-battle-of-the-biscuits
 project template repo
