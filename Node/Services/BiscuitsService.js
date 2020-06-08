@@ -11,7 +11,7 @@ const getAllBiscuits = (db, callback) => {
 //gets the top3 biscuits, sorted by the highest win ratios.
 const getTop3Biscuits = (db, callback) => {
     let collection = db.collection('biscuits');
-
+    //sorts by win ratio, and limits to 3 records. 
     collection.find({}).sort( { winratio: -1 } ).limit(3).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
@@ -21,21 +21,21 @@ const getTop3Biscuits = (db, callback) => {
 //gets the top4-10 biscuits, ordered by win ratios.
 const getFourToTenBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
-
+    //sorts by win ratio, and limits to 3 records. 
     collection.find({}).sort( { winratio: -1 } ).skip(3).limit(7).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
     })
 };
 
-//update task in db
+//update db with the winning biscuit (updates win ratio, win count and comparison count)
 const putWinnerBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount) => {
     let collection = db.collection('biscuits');
 
     collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}})
 };
 
-//update task in db
+//update db with the losing biscuit (updates win ratio and comparison count)
 const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount) => {
     let collection = db.collection('biscuits');
 
