@@ -33,14 +33,24 @@ const getFourToTenBiscuits = (req, res) => {
 };
 
 //updates the url specified task with the status specified in the body
-const putBiscuits = (req, res) => {
+const putWinnerBiscuit = (req, res) => {
     const name = req.body.name;
     const winCount = req.body.wincount;
-    const comparisonCount = req.body.comparisonCount;
+    const comparisonCount = req.body.comparisoncount;
     const winRatio = req.body.winratio;
 
     DbService((db) => {
-        BiscuitsService.putBiscuits(db, name, winRatio,);
+        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount);
+    });
+};
+
+const putLoserBiscuit = (req, res) => {
+    const name = req.body.name;
+    const comparisonCount = req.body.comparisoncount;
+    const winRatio = req.body.winratio;
+
+    DbService((db) => {
+        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount);
     });
 };
 
@@ -48,5 +58,6 @@ const putBiscuits = (req, res) => {
 module.exports.getAllBiscuits = getAllBiscuits;
 module.exports.getTop3Biscuits = getTop3Biscuits;
 module.exports.getFourToTenBiscuits = getFourToTenBiscuits;
-module.exports.putBiscuits = putBiscuits;
+module.exports.putWinnerBiscuit = putWinnerBiscuit;
+module.exports.putLoserBiscuit = putLoserBiscuit;
 

@@ -7,7 +7,9 @@ const routes = (app) => {
 
     app.get('/biscuits/4-10', BiscuitsController.getFourToTenBiscuits);
 
-    app.put('/biscuits/', BiscuitsController.putBiscuits);
+    app.put('/biscuits/winner', BiscuitsController.putWinnerBiscuit);
+    
+    app.put('/biscuits/loser', BiscuitsController.putLoserBiscuit);
 
 };
 

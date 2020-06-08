@@ -29,14 +29,22 @@ const getFourToTenBiscuits = (db, callback) => {
 };
 
 //update task in db
-const putBiscuits = (db, biscuitName, winRatio) => {
+const putWinnerBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount) => {
     let collection = db.collection('biscuits');
 
-    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio}})
+    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}})
+};
+
+//update task in db
+const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount) => {
+    let collection = db.collection('biscuits');
+
+    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount}})
 };
 
 
 module.exports.getAllBiscuits = getAllBiscuits;
 module.exports.getTop3Biscuits = getTop3Biscuits;
 module.exports.getFourToTenBiscuits = getFourToTenBiscuits;
-module.exports.putBiscuits = putBiscuits;
+module.exports.putWinnerBiscuit = putWinnerBiscuit;
+module.exports.putLoserBiscuit = putLoserBiscuit;
