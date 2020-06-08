@@ -1,11 +1,11 @@
-const BiscuitsController = require('../Controllers/biscuitsController');
+const BiscuitsController = require('../Controller/BiscuitsController');
 
 const routes = (app) => {
-    app.get('/biscuits/', BiscuitsController.getBiscuits);
+    app.get('/biscuits/', BiscuitsController.getAllBiscuits);
 
-    app.get('/biscuits/top3', BiscuitsController.getBiscuits);
+    app.get('/biscuits/top3', BiscuitsController.getTop3Biscuits);
 
-    app.get('/biscuits/4-10', BiscuitsController.getBiscuits);
+    app.get('/biscuits/4-10', BiscuitsController.getFourToTenBiscuits);
 
     app.put('/biscuits/', BiscuitsController.putBiscuits);
 

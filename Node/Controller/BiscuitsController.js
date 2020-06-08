@@ -2,7 +2,7 @@ const DbService = require('../Services/DbService');
 const BiscuitsService = require('../Services/BiscuitsService');
 
 //gets completed/uncompleted Biscuits depending on what the user specifies in the URL
-const getBiscuits = (req, res) => {
+const getAllBiscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getAllBiscuits(db, (documentsReturned) => {
@@ -12,7 +12,7 @@ const getBiscuits = (req, res) => {
     });
 };
 
-const getBiscuits = (req, res) => {
+const getTop3Biscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getTop3Biscuits(db, (documentsReturned) => {
@@ -22,10 +22,10 @@ const getBiscuits = (req, res) => {
     });
 };
 
-const getBiscuits = (req, res) => {
+const getFourToTenBiscuits = (req, res) => {
 
     DbService((db) => {
-        BiscuitsService.getFourToSevenBiscuits(db, (documentsReturned) => {
+        BiscuitsService.getFourToTenBiscuits(db, (documentsReturned) => {
             console.log(documentsReturned);
             res.json(documentsReturned);
         });
@@ -42,5 +42,8 @@ const putBiscuits = (req, res) => {
 };
 
 
-module.exports.getBiscuits = getBiscuits;
+module.exports.getAllBiscuits = getAllBiscuits;
+module.exports.getTop3Biscuits = getTop3Biscuits;
+module.exports.getFourToTenBiscuits = getFourToTenBiscuits;
 module.exports.putBiscuits = putBiscuits;
+

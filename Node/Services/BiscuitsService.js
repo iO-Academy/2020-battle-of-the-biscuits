@@ -1,8 +1,8 @@
 //gets a task from db
-const getBiscuits = (db, callback) => {
+const getAllBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 
-    collection.find({}).toArray((err, docs) => {
+    collection.find({}).sort( { winratio: -1 } ).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
     })
@@ -12,29 +12,31 @@ const getBiscuits = (db, callback) => {
 const getTop3Biscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 
-    collection.find({}).toArray((err, docs) => {
+    collection.find({}).sort( { winratio: -1 } ).limit(3).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
     })
 };
 
 //gets a task from db
-const getFourToSevenBiscuits = (db, callback) => {
+const getFourToTenBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 
-    collection.find({}).toArray((err, docs) => {
+    collection.find({}).sort( { winratio: -1 } ).skip(3).limit(7).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
     })
 };
 
 //update task in db
-const putBiscuits = (db, task, updateStatus) => {
+const putBiscuits = (db, biscuit, updateWinRatio) => {
     let collection = db.collection('Biscuits');
 
-    collection.updateOne({task: task}, {$set: {status: updateStatus}})
+    collection.updateOne({biscuit: biscuit}, {$set: {winratio: updateWinRatio}})
 };
 
 
-module.exports.getBiscuits = getBiscuits;
+module.exports.getAllBiscuits = getAllBiscuits;
+module.exports.getTop3Biscuits = getTop3Biscuits;
+module.exports.getFourToTenBiscuits = getFourToTenBiscuits;
 module.exports.putBiscuits = putBiscuits;
