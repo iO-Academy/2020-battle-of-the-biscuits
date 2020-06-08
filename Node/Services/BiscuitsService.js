@@ -1,14 +1,14 @@
-//gets a task from db
+//gets all biscuits from from db
 const getAllBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 
-    collection.find({}).sort( { winratio: -1 } ).toArray((err, docs) => {
+    collection.find({}).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
     })
 };
 
-//gets a task from db
+//gets the top3 biscuits, sorted by the highest win ratios.
 const getTop3Biscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 
@@ -18,7 +18,7 @@ const getTop3Biscuits = (db, callback) => {
     })
 };
 
-//gets a task from db
+//gets the top4-10 biscuits, ordered by win ratios.
 const getFourToTenBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 

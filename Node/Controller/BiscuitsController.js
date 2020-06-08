@@ -1,7 +1,7 @@
 const DbService = require('../Services/DbService');
 const BiscuitsService = require('../Services/BiscuitsService');
 
-//gets completed/uncompleted Biscuits depending on what the user specifies in the URL
+//gets all biscuits
 const getAllBiscuits = (req, res) => {
 
     DbService((db) => {
@@ -12,6 +12,7 @@ const getAllBiscuits = (req, res) => {
     });
 };
 
+//gets top 3 biscuits from db
 const getTop3Biscuits = (req, res) => {
 
     DbService((db) => {
@@ -22,6 +23,7 @@ const getTop3Biscuits = (req, res) => {
     });
 };
 
+//gets 4th to tenth biscuit
 const getFourToTenBiscuits = (req, res) => {
 
     DbService((db) => {
@@ -53,7 +55,6 @@ const putLoserBiscuit = (req, res) => {
         BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount);
     });
 };
-
 
 module.exports.getAllBiscuits = getAllBiscuits;
 module.exports.getTop3Biscuits = getTop3Biscuits;
