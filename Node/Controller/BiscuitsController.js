@@ -34,10 +34,13 @@ const getFourToTenBiscuits = (req, res) => {
 
 //updates the url specified task with the status specified in the body
 const putBiscuits = (req, res) => {
-    const winRatio = req.body.winRatio;
+    const name = req.body.name;
+    const winCount = req.body.wincount;
+    const comparisonCount = req.body.comparisonCount;
+    const winRatio = req.body.winratio;
 
     DbService((db) => {
-        BiscuitsService.putBiscuits(db, winRatio);
+        BiscuitsService.putBiscuits(db, name, winRatio,);
     });
 };
 

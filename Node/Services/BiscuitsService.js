@@ -29,10 +29,10 @@ const getFourToTenBiscuits = (db, callback) => {
 };
 
 //update task in db
-const putBiscuits = (db, biscuit, updateWinRatio) => {
-    let collection = db.collection('Biscuits');
+const putBiscuits = (db, biscuitName, winRatio) => {
+    let collection = db.collection('biscuits');
 
-    collection.updateOne({biscuit: biscuit}, {$set: {winratio: updateWinRatio}})
+    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio}})
 };
 
 
