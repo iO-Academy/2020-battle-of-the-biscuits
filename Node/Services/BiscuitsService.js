@@ -21,7 +21,7 @@ const getTop3Biscuits = (db, callback) => {
 //gets the top4-10 biscuits, ordered by win ratios.
 const getFourToTenBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
-    //sorts by win ratio, and limits to 3 records. 
+    //sorts by win ratio, and limits to 7 records. 
     collection.find({}).sort( { winratio: -1 } ).skip(3).limit(7).toArray((err, docs) => {
         console.log('Found the following records');
         callback(docs);
