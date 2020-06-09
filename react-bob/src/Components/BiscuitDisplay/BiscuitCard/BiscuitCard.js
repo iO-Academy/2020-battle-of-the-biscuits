@@ -9,7 +9,9 @@ class BiscuitCard extends React.Component {
             //     <p>{ this.state.biscuit[0].name }</p>
             // </div>
             <div className="biscuitCard">
-                <img src="https://media.irishpost.co.uk/uploads/2020/03/30161636/shortbread-irish-post.jpg" />
+                {/* <div className="image" style={{backgroundImage: "url(this.status.blahblah)"}}></div> */}
+                {/* <div className="biscuitImage" style= "background: 'https://media.irishpost.co.uk/uploads/2020/03/30161636/shortbread-irish-post.jpg'"></div> */}
+                <div className="biscuitImage"></div>
                 <h3>Shortbread</h3>
                 <h3>Recommended Dunking Time: 5</h3>
             </div>
