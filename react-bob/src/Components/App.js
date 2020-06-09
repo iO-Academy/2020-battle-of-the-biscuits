@@ -48,8 +48,10 @@ class Biscuit extends React.Component {
 
     render() {
         return (
-        
-            <Biscuit ={this.state.missions}/>
+            <div>
+                <BiscuitDisplay allBiscuits={this.state.allBiscuits}/>
+                <LeaderboardDisplay top3={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/>
+            </div>
         )
-        }
     }
+}
