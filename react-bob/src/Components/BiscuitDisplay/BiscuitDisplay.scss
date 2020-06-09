@@ -1,0 +1,17 @@
+.comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // .biscuitCard {
+    // //   width:30%;
+    // }
+    h2 {
+        margin: 1%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+  .comparison {
+    flex-direction: column;
+  }
+}

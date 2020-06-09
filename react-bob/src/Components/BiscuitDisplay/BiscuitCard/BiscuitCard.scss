@@ -1,0 +1,26 @@
+.biscuitCard {
+    border: #034485 solid 2px;
+    background-color: #C5DF95;
+    width: 30%;
+    .biscuitImage {
+        background-image: url(https://media.irishpost.co.uk/uploads/2020/03/30161636/shortbread-irish-post.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 95%;
+        margin: 2.5% auto;
+        border:  #034485 solid 2px;
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .biscuitCard{
+        width: 75%;
+        .biscuitImage {
+            width: 95%;
+            margin: 2.5% auto;
+            height: 15rem;
+        }
+    }
+}
