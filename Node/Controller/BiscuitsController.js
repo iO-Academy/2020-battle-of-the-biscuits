@@ -36,10 +36,10 @@ const getFourToTenBiscuits = (req, res) => {
 
 //updates the url specified task with the status specified in the body
 const putWinnerBiscuit = (req, res) => {
-    const name = req.body.name;
-    const winCount = req.body.wincount;
-    const comparisonCount = req.body.comparisoncount;
-    const winRatio = req.body.winratio;
+    const name = sanitize(req.body.name)
+    const winCount = sanitize(req.body.wincount);
+    const comparisonCount = sanitize(req.body.comparisoncount);
+    const winRatio = sanitize(req.body.winratio);
 
     DbService((db) => {
         BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount);
@@ -47,9 +47,9 @@ const putWinnerBiscuit = (req, res) => {
 };
 
 const putLoserBiscuit = (req, res) => {
-    const name = req.body.name;
-    const comparisonCount = req.body.comparisoncount;
-    const winRatio = req.body.winratio;
+    const name = sanitize(req.body.name);
+    const comparisonCount = sanitize(req.body.comparisoncount);
+    const winRatio = sanitize(req.body.winratio);
 
     DbService((db) => {
         BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount);

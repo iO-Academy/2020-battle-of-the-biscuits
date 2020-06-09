@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const sanitize = require('mongo-sanitize');
 
 // Loaded in our routes file
 const routes = require('./Config/routes');
