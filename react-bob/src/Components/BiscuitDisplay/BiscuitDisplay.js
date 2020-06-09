@@ -7,7 +7,6 @@ class BiscuitDisplay extends React.Component {
     // super(props)
     render () {
         return (
-            
             <div className='comparison'>
                 <BiscuitCard />
                 <h2>vs</h2>
