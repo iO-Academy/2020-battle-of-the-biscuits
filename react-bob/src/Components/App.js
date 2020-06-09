@@ -14,6 +14,7 @@ class Biscuit extends React.Component {
         this.allBiscuits()
         this.top3Biscuit()
         this.fourToTenBiscuits()
+        console.log(this.state)
     }
 
     allBiscuits = () => {
@@ -55,3 +56,5 @@ class Biscuit extends React.Component {
         )
     }
 }
+
+export default Biscuit
