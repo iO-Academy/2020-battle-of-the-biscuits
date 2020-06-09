@@ -9,14 +9,12 @@ class BiscuitCard extends React.Component {
 
     render () {
         return (
-            // <div>
-            //     <p>{ this.state.biscuit[0].name }</p>
-            // </div>
             <div className="biscuitCard">
-                <div className="image" style={{backgroundImage: "url(" + this.props.biscuitToDisplay.img + ")"}}></div>
+                {console.log(this.props.biscuitToDisplay)}
+                {/* <div className="image" style={{backgroundImage: "url(" + this.props.biscuitToDisplay.img + ")"}}></div>
                 <div className="biscuitImage"></div>
                 <h3>{this.props.biscuitToDisplay.name}</h3>
-                <h3>Recommended Dunking Time: {this.props.biscuitToDisplay.RDT}</h3>
+                <h3>Recommended Dunking Time: {this.props.biscuitToDisplay.RDT}</h3> */}
             </div>
         )
     }

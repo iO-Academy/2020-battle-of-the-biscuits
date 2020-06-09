@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.scss';
+import BiscuitDisplay from './BiscuitDisplay/BiscuitDisplay'
+import LeaderboardDisplay from './LeaderboardDisplay/LeaderboardDisplay'
 
 class Biscuit extends React.Component {
     constructor(props) {
@@ -18,31 +20,31 @@ class Biscuit extends React.Component {
     }
 
     allBiscuits = () => {
-        fetch('http://localhost:3007/biscuits/')
+        fetch('http://localhost:9000/biscuits/')
         .then(data => data.json())
             .then((data) => {
                 this.setState({
-                    allBiscuits: data,
+                    allBiscuits: data
                 })
             })
     }
 
     top3Biscuits = () => {
-        fetch('http://localhost:3007/biscuits/top3')
+        fetch('http://localhost:9000/biscuits/top3')
         .then(data => data.json())
             .then((data) => {
                 this.setState({
-                    top3Biscuits: data,
+                    top3Biscuits: data
                 })
             })
     }
 
     fourToTenBiscuits = () => {
-        fetch('http://localhost:3007/biscuits/4-10')
+        fetch('http://localhost:9000/biscuits/4-10')
         .then(data => data.json())
             .then((data) => {
                 this.setState({
-                    fourToTenBiscuits: data,
+                    fourToTenBiscuits: data
                 })
             })
     }
@@ -50,6 +52,7 @@ class Biscuit extends React.Component {
     render() {
         return (
             <div>
+                {console.log(this.state.allBiscuits)}
                 <BiscuitDisplay allBiscuits={this.state.allBiscuits}/>
                 <LeaderboardDisplay top3={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/>
             </div>

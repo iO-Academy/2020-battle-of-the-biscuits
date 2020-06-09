@@ -13,11 +13,17 @@ class BiscuitDisplay extends React.Component {
     }
 
     randomBiscuits = () => {
-        let allTheBiscuits= this.state.allBiscuits
-        let shuffledBiscuits = shuffle(allTheBiscuits);
-        let selectedBiscuits = shuffledBiscuits[0,1]
+        let allTheBiscuits = this.props.allBiscuits[0,1]
+        
+        // function shuffle(array) {
+        //     array.sort(() => Math.random() - 0.5);
+        // }
+
+        // let shuffledBiscuits = shuffle(allTheBiscuits);
+        // let selectedBiscuits = shuffledBiscuits[0,1]
+
         this.setState({
-            biscuitsToDisplay: selectedBiscuits
+            biscuitsToDisplay: allTheBiscuits
         })
 
     }
@@ -25,6 +31,7 @@ class BiscuitDisplay extends React.Component {
     render () {
         return (
             <div className="App">
+                {console.log(this.state.biscuitsToDisplay)}
                 <Header />
                 <h3>Click on your favourite</h3>
                 <div className='comparison'>
