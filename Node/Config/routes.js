@@ -9,8 +9,7 @@ const routes = (app) => {
 
     app.put('/biscuits/winner', BiscuitsController.putWinnerBiscuit);
     
-    app.put('/biscuits/loser', BiscuitsController.putLoserBiscuit);
-
+    app.put('/biscuits/loser',  BiscuitsController.putLoserBiscuit);
 };
 
 module.exports = routes;
