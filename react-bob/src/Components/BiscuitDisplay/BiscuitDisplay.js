@@ -2,37 +2,51 @@ import React from 'react';
 import './BiscuitDisplay.scss';
 import BiscuitCard from './BiscuitCard/BiscuitCard'
 import Header from '../Header/Header'
-import Biscuit from '../../Components/App'
+import Biscuit from '../App'
 
 class BiscuitDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            biscuitsToDisplay:[]
+            biscuitsToDisplay: []
             }
     }
 
-    randomBiscuits = () => {
-        let allTheBiscuits = this.props.allBiscuits[0,1]
-        
-        // function shuffle(array) {
-        //     array.sort(() => Math.random() - 0.5);
-        // }
-
-        // let shuffledBiscuits = shuffle(allTheBiscuits);
-        // let selectedBiscuits = shuffledBiscuits[0,1]
-
-        this.setState({
-            biscuitsToDisplay: allTheBiscuits
-        })
-
+    componentDidUpdate(prevProps) {
+        console.log(this.props.allBiscuits)
+        if (this.props.allBiscuits !== prevProps.allBiscuits) {
+            this.setState({
+                biscuitsToDisplay: this.props.allBiscuits
+            })
+        }
     }
+
+    // randomBiscuits = () => {
+        
+    //     let allTheBiscuits = this.props.allBiscuits
+        
+        
+    //     function shuffle(array) {
+    //         array.sort(() => Math.random() - 0.5);
+    //     }
+
+    //     let shuffledBiscuits = shuffle(allTheBiscuits);
+    //     let selectedBiscuits = shuffledBiscuits[0,1]
+
+    //     this.setState({
+    //         biscuitsToDisplay: allTheBiscuits
+    //     })
+
+    // }
 
     render () {
         return (
             <div className="App">
+                {/* <h1>{this.state.biscuitsToDisplay}</h1> */}
+                {/* {console.log(this.props.allBiscuits)} */}
                 {console.log(this.state.biscuitsToDisplay)}
                 <Header />
+                
                 <h3>Click on your favourite</h3>
                 <div className='comparison'>
                     <BiscuitCard Biscuit={this.state.biscuitsToDisplay[0]}/>

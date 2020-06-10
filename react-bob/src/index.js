@@ -5,6 +5,7 @@ import './index.scss';
 // import App from './Components/App';
 import BiscuitDisplay from './Components/BiscuitDisplay/BiscuitDisplay'
 import NotFound from './Components/NotFound/NotFound'
+import Biscuit from './Components/App'
 // import DisplayLeaderboard from './Components/LeaderboardDisplay/LeaderboardDisplay'
 
 import * as serviceWorker from './serviceWorker';
@@ -15,8 +16,7 @@ class Routing extends React.Component {
       <Router>
         <div>
           <Switch>
-          <Route exact path="/" component={ BiscuitDisplay } />
-          {/* <Route path="/leaderboard" component={ DisplayLeaderboard } /> */}
+          <Route exact path="/" component={ Biscuit } />
           <Route component={ NotFound } />
           </Switch>
         </div>

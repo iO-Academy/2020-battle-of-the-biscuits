@@ -14,9 +14,8 @@ class Biscuit extends React.Component {
 
         //populates biscuits with data from api to create an array of objects
         this.allBiscuits()
-        this.top3Biscuit()
+        this.top3Biscuits()
         this.fourToTenBiscuits()
-        console.log(this.state)
     }
 
     allBiscuits = () => {
@@ -52,9 +51,8 @@ class Biscuit extends React.Component {
     render() {
         return (
             <div>
-                {console.log(this.state.allBiscuits)}
                 <BiscuitDisplay allBiscuits={this.state.allBiscuits}/>
-                <LeaderboardDisplay top3={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/>
+                {/* <LeaderboardDisplay top3={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/> */}
             </div>
         )
     }
