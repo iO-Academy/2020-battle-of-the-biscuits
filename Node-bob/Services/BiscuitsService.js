@@ -1,9 +1,12 @@
+var shuffle = require('shuffle-array');
+
 //gets all biscuits from from db
 const getAllBiscuits = (db, callback) => {
     let collection = db.collection('biscuits');
 
     collection.find({}).toArray((err, docs) => {
-        callback(docs);
+        let random= shuffle(docs);
+        callback(random);
     })
 };
 

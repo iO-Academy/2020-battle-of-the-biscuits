@@ -8,14 +8,14 @@ class Biscuit extends React.Component {
         super(props);
         this.state = {
             allBiscuits:[],
-            top3Biscuits:[],
-            fourToTenBiscuits:[]
+            // top3Biscuits:[],
+            // fourToTenBiscuits:[]
         }
 
         //populates biscuits with data from api to create an array of objects
         this.allBiscuits()
-        this.top3Biscuits()
-        this.fourToTenBiscuits()
+        // this.top3Biscuits()
+        // this.fourToTenBiscuits()
     }
 
     allBiscuits = () => {
@@ -28,25 +28,25 @@ class Biscuit extends React.Component {
             })
     }
 
-    top3Biscuits = () => {
-        fetch('http://localhost:9000/biscuits/top3')
-        .then(data => data.json())
-            .then((data) => {
-                this.setState({
-                    top3Biscuits: data
-                })
-            })
-    }
+    // top3Biscuits = () => {
+    //     fetch('http://localhost:9000/biscuits/top3')
+    //     .then(data => data.json())
+    //         .then((data) => {
+    //             this.setState({
+    //                 top3Biscuits: data
+    //             })
+    //         })
+    // }
 
-    fourToTenBiscuits = () => {
-        fetch('http://localhost:9000/biscuits/4-10')
-        .then(data => data.json())
-            .then((data) => {
-                this.setState({
-                    fourToTenBiscuits: data
-                })
-            })
-    }
+    // fourToTenBiscuits = () => {
+    //     fetch('http://localhost:9000/biscuits/4-10')
+    //     .then(data => data.json())
+    //         .then((data) => {
+    //             this.setState({
+    //                 fourToTenBiscuits: data
+    //             })
+    //         })
+    // }
 
     render() {
         return (
