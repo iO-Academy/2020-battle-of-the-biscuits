@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.scss';
-// import Logo from "./oreo-biscuit-recipe-cookie.jpg"
 
 class Header extends React.Component {
     render () {
