@@ -10,8 +10,8 @@ const getAllBiscuits = (db, callback) => {
     })
 }
 
-//gets the top3 biscuits, sorted by the highest win ratios.
-const getTop3Biscuits = (db, callback) => {
+//gets the top 3 biscuits, sorted by the highest win ratios.
+const getTopThreeBiscuits = (db, callback) => {
     let collection = db.collection('biscuits')
     //sorts by win ratio, and limits to 3 records. 
     collection.find({}).sort( { winratio: -1 } ).limit(3).toArray((err, docs) => {
@@ -19,7 +19,7 @@ const getTop3Biscuits = (db, callback) => {
     })
 }
 
-//gets the top4-10 biscuits, ordered by win ratios.
+//gets the top 4-10 biscuits, ordered by win ratios.
 const getFourToTenBiscuits = (db, callback) => {
     let collection = db.collection('biscuits')
     //sorts by win ratio, and limits to 7 records. 
@@ -32,7 +32,9 @@ const getFourToTenBiscuits = (db, callback) => {
 const putWinnerBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount) => {
     let collection = db.collection('biscuits')
     //updates by biscuit winratio, comparisoncount and wincount by given name
-    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}})
+    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}}.toArray((err, docs) => {
+        callback(docs)
+    }))
 }
 
 //update db with the losing biscuit (updates win ratio and comparison count)
@@ -43,7 +45,7 @@ const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount) => {
 }
 
 module.exports.getAllBiscuits = getAllBiscuits
-module.exports.getTop3Biscuits = getTop3Biscuits
+module.exports.getTopThreeBiscuits = getTopThreeBiscuits
 module.exports.getFourToTenBiscuits = getFourToTenBiscuits
 module.exports.putWinnerBiscuit = putWinnerBiscuit
 module.exports.putLoserBiscuit = putLoserBiscuit

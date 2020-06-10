@@ -7,19 +7,17 @@ const getAllBiscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getAllBiscuits(db, (documentsReturned) => {
-            console.log(documentsReturned)
-            res.json(documentsReturned)
+            res.json({data:documentsReturned})
         })
     })
 }
 
 //gets top 3 biscuits from db
-const getTop3Biscuits = (req, res) => {
+const getTopThreeBiscuits = (req, res) => {
 
     DbService((db) => {
-        BiscuitsService.getTop3Biscuits(db, (documentsReturned) => {
-            console.log(documentsReturned)
-            res.json(documentsReturned)
+        BiscuitsService.getTopThreeBiscuits(db, (documentsReturned) => {
+            res.json({data:documentsReturned})
         })
     })
 }
@@ -29,8 +27,7 @@ const getFourToTenBiscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getFourToTenBiscuits(db, (documentsReturned) => {
-            console.log(documentsReturned)
-            res.json(documentsReturned)
+            res.json({data:documentsReturned})
         })
     })
 }
@@ -41,9 +38,16 @@ const putWinnerBiscuit = (req, res) => {
     const winCount = sanitize(req.body.wincount)
     const comparisonCount = sanitize(req.body.comparisoncount)
     const winRatio = sanitize(req.body.winratio)
-
+    //needs checking
     DbService((db) => {
-        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount)
+        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount, (documentsReturned) => {
+            res.json({
+                'data': documentsReturned, 
+                'success': true,
+                'message': 'it worked!',
+                'status': 200
+            })
+        })
     })
 }
 
@@ -53,12 +57,14 @@ const putLoserBiscuit = (req, res) => {
     const winRatio = sanitize(req.body.winratio)
 
     DbService((db) => {
-        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount)
+        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount, (documentsReturned) => {
+            res.json({data:documentsReturned})
+        })
     })
 }
 
 module.exports.getAllBiscuits = getAllBiscuits
-module.exports.getTop3Biscuits = getTop3Biscuits
+module.exports.getTopThreeBiscuits = getTopThreeBiscuits
 module.exports.getFourToTenBiscuits = getFourToTenBiscuits
 module.exports.putWinnerBiscuit = putWinnerBiscuit
 module.exports.putLoserBiscuit = putLoserBiscuit
