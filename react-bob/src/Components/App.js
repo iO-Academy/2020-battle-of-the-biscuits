@@ -29,7 +29,7 @@ class Biscuit extends React.Component {
     }
 
     // top3Biscuits = () => {
-    //     fetch('http://localhost:9000/biscuits/top3')
+    //     fetch('http://localhost:9000/biscuits/topthree')
     //     .then(data => data.json())
     //         .then((data) => {
     //             this.setState ({
@@ -39,7 +39,7 @@ class Biscuit extends React.Component {
     // }
 
     // fourToTenBiscuits = () => {
-    //     fetch('http://localhost:9000/biscuits/4-10')
+    //     fetch('http://localhost:9000/biscuits/fourtoten)
     //     .then(data => data.json())
     //         .then((data) => {
     //             this.setState ({
