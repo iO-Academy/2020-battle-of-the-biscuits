@@ -9,11 +9,11 @@ class BiscuitDisplay extends React.Component {
         super(props);
         this.state = {
             biscuitsToDisplay: []
-            }
+        }
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props.allBiscuits)
+        // console.log(this.props.allBiscuits)
         if (this.props.allBiscuits !== prevProps.allBiscuits) {
             this.setState({
                 biscuitsToDisplay: this.props.allBiscuits
@@ -44,14 +44,14 @@ class BiscuitDisplay extends React.Component {
             <div className="App">
                 {/* <h1>{this.state.biscuitsToDisplay}</h1> */}
                 {/* {console.log(this.props.allBiscuits)} */}
-                {console.log(this.state.biscuitsToDisplay)}
+                {/* {console.log(this.state.biscuitsToDisplay[0])} */}
                 <Header />
                 
                 <h3>Click on your favourite</h3>
                 <div className='comparison'>
-                    <BiscuitCard Biscuit={this.state.biscuitsToDisplay[0]}/>
+                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[0]}/>
                     <h2>VS</h2>
-                    <BiscuitCard Biscuit={this.state.biscuitsToDisplay[1]}/>
+                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[1]}/>
                 </div>
             </div>
         )
