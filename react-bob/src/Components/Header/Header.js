@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 // import Logo from "./oreo-biscuit-recipe-cookie.jpg"
 
 class Header extends React.Component {

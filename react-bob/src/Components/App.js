@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.scss';
+import React from 'react'
+import './App.scss'
 import BiscuitDisplay from './BiscuitDisplay/BiscuitDisplay'
 import LeaderboardDisplay from './LeaderboardDisplay/LeaderboardDisplay'
 
 class Biscuit extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             allBiscuits:[],
             // top3Biscuits:[],
@@ -22,7 +22,7 @@ class Biscuit extends React.Component {
         fetch('http://localhost:9000/biscuits/')
         .then(data => data.json())
             .then((data) => {
-                this.setState({
+                this.setState ({
                     allBiscuits: data
                 })
             })
@@ -32,7 +32,7 @@ class Biscuit extends React.Component {
     //     fetch('http://localhost:9000/biscuits/top3')
     //     .then(data => data.json())
     //         .then((data) => {
-    //             this.setState({
+    //             this.setState ({
     //                 top3Biscuits: data
     //             })
     //         })
@@ -42,7 +42,7 @@ class Biscuit extends React.Component {
     //     fetch('http://localhost:9000/biscuits/4-10')
     //     .then(data => data.json())
     //         .then((data) => {
-    //             this.setState({
+    //             this.setState ({
     //                 fourToTenBiscuits: data
     //             })
     //         })
