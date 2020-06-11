@@ -39,6 +39,7 @@ class LeaderboardDisplay extends React.Component {
             )}
           </div>
         </div>
+        <GoToBiscuitBtn />
       </div>
     )
   }
