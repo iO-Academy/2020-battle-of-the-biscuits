@@ -17,7 +17,6 @@ class LeaderboardDisplay extends React.Component {
             <p className="win">Win ratio %</p>
           </div>
           <div className="top3">
-            {console.log(this.props.topThreeBiscuits)}
             {this.props.topThreeBiscuits.map((topThree, index) => {
               i++
               return <div className="row" key={i}>
