@@ -1,33 +1,20 @@
 import React from 'react'
 import './App.scss'
 import Header from './Header/Header'
-// import BiscuitDisplay from './BiscuitDisplay/BiscuitDisplay'
 import LeaderboardDisplay from './LeaderboardDisplay/LeaderboardDisplay'
 
 class Leaderboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // allBiscuits:[],
             topThreeBiscuits:[],
             fourToTenBiscuits:[]
         }
-
         //populates biscuits with data from api to create an array of objects
-        // this.allBiscuits()
         this.topThreeBiscuits()
         this.fourToTenBiscuits()
     }
 
-    // allBiscuits = () => {
-    //     fetch('http://localhost:9000/biscuits/')
-    //     .then(data => data.json())
-    //         .then((data) => {
-    //             this.setState ({
-    //                 allBiscuits: data.data
-    //             })
-    //         })
-    // }
 
     topThreeBiscuits = () => {
         fetch('http://localhost:9000/biscuits/topthree')
@@ -53,8 +40,7 @@ class Leaderboard extends React.Component {
         return (
             <div>
                 <Header />
-                {/* <BiscuitDisplay allBiscuits={this.state.allBiscuits}/> */}
-                <LeaderboardDisplay topThreeBiscuits={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/>
+                <LeaderboardDisplay topThreeBiscuits={this.state.topThreeBiscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/>
             </div>
         )
     }

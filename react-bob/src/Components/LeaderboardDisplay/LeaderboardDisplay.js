@@ -1,46 +1,30 @@
 import React from 'react'
+import GoToBiscuitBtn from './GoToBiscuitsBtn/GoToBiscuitsBtn'
 
 class LeaderboardDisplay extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-          topThree: [],
-          fourToTen: []
-      }
-  }
-
-  componentDidUpdate(prevProps) {
-    if ((this.props.topThreeBiscuits !== prevProps.topThreeBiscuits) && (this.props.fourToTenBiscuits !== prevProps.fourToTenBiscuits)) {
-        this.setState({
-            topThree: this.props.topThreeBiscuits,
-            fourToTen: this.props.fourToTenBiscuits
-        })
-    }
-  }
-
-  
   render () {
+    let i = 0
+    let j = 3
         return (
           <div>       
             <h3>Top Ten Leaderboard</h3>
             <div className= "leaderboard">
               <div className="top3">
-                {this.state.topThree[0]}
-              </div>
-              <div className="top3">
-                {this.state.topThree[1]}
-
-              </div>
-              <div className="top3">
-                {this.state.topThree[2]}
-              </div>
-              {
-                this.state.fourToTen.map((biscuitFourToTen) => 
-                    <div class="biscuitFourToTenCard">
-                        <h2 class="biscuitFourToTenHeading" >{biscuitFourToTen.biscuitFourToTen_name}</h2>
-                        <p class="biscuitFourToTenText">{biscuitFourToTen.winratio}%</p>
-                    </div>   
+                {console.log(this.props.topThreeBiscuits)}
+                {this.props.topThreeBiscuits.map((topThree, index) => {
+                  i++
+                  return <div className={`biscuit${index}`}>{i}{topThree.name}{topThree.winratio}</div>   
+                }
                 )}
+              </div>
+              <div className="fourToTen">
+
+                {this.props.fourToTenBiscuits.map((fourToTen, index) => {
+                  j++
+                  return <div className={`biscuit${index}`}>{j}{fourToTen.name}</div>   
+                }
+                )}
+              </div>
             </div>
           </div>
         )

@@ -1,34 +1,12 @@
 import React from 'react'
-import './Leaderboard.scss'
+import './GoToLeaderboardBtn.scss'
 
-class BiscuitDisplay extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            biscuitsToDisplay: []
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.allBiscuits !== prevProps.allBiscuits) {
-            this.setState({
-                biscuitsToDisplay: this.props.allBiscuits
-            })
-        }
-    }
-
+class GoToLeaderboardBtn extends React.Component {
     render () {
         return (
-            <div className="App">
-                <h3>Click on your favourite</h3>
-                <div className='comparison'>
-                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[0]}/>
-                    <h2>VS</h2>
-                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[1]}/>
-                </div>
-            </div>
+            
         )
     }
 }
 
-export default BiscuitDisplay
+export default GoToLeaderboardBtn
