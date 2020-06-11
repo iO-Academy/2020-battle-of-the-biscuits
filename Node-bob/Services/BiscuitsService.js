@@ -29,12 +29,10 @@ const getFourToTenBiscuits = (db, callback) => {
 }
 
 //update db with the winning biscuit (updates win ratio, win count and comparison count)
-const putWinnerBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount) => {
+const putWinnerBiscuit = (db, biscuitName, comparisonCount, winCount) => {
     let collection = db.collection('biscuits')
     //updates by biscuit winratio, comparisoncount and wincount by given name
-    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}}.toArray((err, docs) => {
-        callback(docs)
-    }))
+    collection.updateOne({name: biscuitName}, {$set: {comparisoncount: comparisonCount, wincount: winCount}})
 }
 
 //update db with the losing biscuit (updates win ratio and comparison count)

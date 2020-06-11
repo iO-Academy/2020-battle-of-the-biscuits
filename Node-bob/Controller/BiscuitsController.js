@@ -37,10 +37,10 @@ const putWinnerBiscuit = (req, res) => {
     const name = sanitize(req.body.name)
     const winCount = sanitize(req.body.wincount)
     const comparisonCount = sanitize(req.body.comparisoncount)
-    const winRatio = sanitize(req.body.winratio)
+   // const winRatio = sanitize(req.body.winratio)
     //needs checking
     DbService((db) => {
-        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount, () => {
+        BiscuitsService.putWinnerBiscuit(db, name, comparisonCount, winCount, () => {
             res.json({
                 'success': true,
                 'message': 'it worked!',
