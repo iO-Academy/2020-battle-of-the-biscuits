@@ -2,6 +2,7 @@ import React from 'react'
 import './App.scss'
 import Header from './Header/Header'
 import BiscuitDisplay from './BiscuitDisplay/BiscuitDisplay'
+import GoToLeaderboardBtn from './BiscuitDisplay/GoToLeaderboardBtn/GoToLeaderboardBtn'
 
 class Biscuit extends React.Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class Biscuit extends React.Component {
             <div>
                 <Header />
                 <BiscuitDisplay allBiscuits={this.state.allBiscuits}/>
+                <GoToLeaderboardBtn />
             </div>
         )
     }
