@@ -35,12 +35,25 @@ const getFourToTenBiscuits = (req, res) => {
 //updates the url specified task with the status specified in the body
 const putWinnerBiscuit = (req, res) => {
     const name = sanitize(req.body.name)
+    console.log(typeof name)
     const winCount = sanitize(req.body.wincount)
     const comparisonCount = sanitize(req.body.comparisoncount)
+<<<<<<< HEAD
    // const winRatio = sanitize(req.body.winratio)
     //needs checking
     DbService((db) => {
         BiscuitsService.putWinnerBiscuit(db, name, comparisonCount, winCount, () => {
+=======
+    // const winRatio = sanitize(req.body.winratio)
+
+    let newWinCount = updateScores (winCount)
+    let newComparisonCount = updateScores (comparisonCount)
+    let newWinRatio = winRatioCalculate(newWinCount, newComparisonCount)
+
+    //needs checking
+    DbService((db) => {
+        BiscuitsService.putWinnerBiscuit(db, name, newWinRatio, newComparisonCount, newWinCount, () => {
+>>>>>>> 2023195cbaf6a5cd254bf5c65972185fdc0a1637
             res.json({
                 'success': true,
                 'message': 'it worked!',
@@ -64,6 +77,15 @@ const putLoserBiscuit = (req, res) => {
             })     
         })
     })
+}
+
+const updateScores = (count) => {
+    return count++
+}
+
+const winRatioCalculate = (winCount, comparisonCount) => {
+    let result = ((winCount/comparisonCount) * 100)
+    return result.toFixed(1)
 }
 
 module.exports.getAllBiscuits = getAllBiscuits
