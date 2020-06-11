@@ -23,9 +23,9 @@ class BiscuitDisplay extends React.Component {
             <div className="App">
                 <h3>Click on your favourite</h3>
                 <div className='comparison'>
-                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[0]}/>
+                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[0]} generateNewCards={this.props.generateNewCards}/>
                     <h2>VS</h2>
-                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[1]}/>
+                    <BiscuitCard BiscuitSelected={this.state.biscuitsToDisplay[1]} generateNewCards={this.props.generateNewCards}/>
                 </div>
             </div>
         )
