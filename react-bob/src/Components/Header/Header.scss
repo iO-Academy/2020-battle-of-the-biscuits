@@ -1,0 +1,31 @@
+.banner_container {
+  width: 100%;
+  margin-bottom: 50px;
+
+  .banner {
+    background-image: url("/Images/Header.png");
+    background-repeat: repeat-x;
+    height: 260px;
+
+    .logo {
+      padding: 35px 0;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    margin-bottom: 0;
+
+    .banner {
+      overflow: hidden;
+      background-size: 140%;
+      margin-bottom: 0px;
+      height: 200px;
+
+      .logo {
+        padding: 20px 0;
+        width: 50%;
+      }
+    }
+  }
+}
+
