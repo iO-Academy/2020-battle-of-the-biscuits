@@ -35,6 +35,7 @@ const getFourToTenBiscuits = (req, res) => {
 //updates the url specified task with the status specified in the body
 const putWinnerBiscuit = (req, res) => {
     const name = sanitize(req.body.name)
+    console.log(typeof name)
     const winCount = sanitize(req.body.wincount)
     const comparisonCount = sanitize(req.body.comparisoncount)
     // const winRatio = sanitize(req.body.winratio)
