@@ -10,7 +10,6 @@ class LeaderboardDisplay extends React.Component {
             <h3>Top Ten Leaderboard</h3>
             <div className= "leaderboard">
               <div className="top3">
-                {console.log(this.props.topThreeBiscuits)}
                 {this.props.topThreeBiscuits.map((topThree, index) => {
                   i++
                   return <div className={`biscuit${index}`}>{i}{topThree.name}{topThree.winratio}</div>   
