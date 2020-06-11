@@ -1,0 +1,69 @@
+.leaderboard {
+  width: 60%;
+  border: #034485 solid 2px;
+  background-color: #fafafa;
+  margin: 20px auto;
+
+  .leaderboard_headings {
+    display: flex;
+    justify-content: space-between;
+
+    .win,
+    .position,
+    .biscuit_name {
+      width: 100%;
+    }
+  }
+
+  .top3 {
+    .row {
+      display: flex;
+      justify-content: space-between;
+
+      .biscuit0,
+      .biscuit1,
+      .biscuit2 {
+        padding: 40px 0;
+        font-size: 30px;
+      }
+
+      .biscuit0 {
+        background-color: #e6c210;
+        width: 100%;
+      }
+
+      .biscuit1 {
+        background-color: #bfbfbf;
+        width: 100%;
+      }
+
+      .biscuit2 {
+        background-color: #c47600;
+        width: 100%;
+      }
+    }
+  }
+
+  .fourToTen {
+    .row {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      .biscuit0,
+      .biscuit1,
+      .biscuit2,
+      .biscuit3,
+      .biscuit4,
+      .biscuit5,
+      .biscuit6 {
+        padding: 20px 0;
+        width: 100%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 90%;
+  }
+}
