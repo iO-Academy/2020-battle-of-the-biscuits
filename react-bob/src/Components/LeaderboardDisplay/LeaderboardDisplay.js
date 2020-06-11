@@ -24,6 +24,7 @@ class LeaderboardDisplay extends React.Component {
                   return <div className={`biscuit${index}`}>{j}{fourToTen.name}</div>   
                 }
                 )}
+                <GoToBiscuitBtn />
               </div>
             </div>
           </div>
