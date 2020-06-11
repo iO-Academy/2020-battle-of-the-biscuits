@@ -40,9 +40,8 @@ const putWinnerBiscuit = (req, res) => {
     const winRatio = sanitize(req.body.winratio)
     //needs checking
     DbService((db) => {
-        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount, (documentsReturned) => {
+        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount, () => {
             res.json({
-                'data': documentsReturned, 
                 'success': true,
                 'message': 'it worked!',
                 'status': 200
@@ -57,8 +56,12 @@ const putLoserBiscuit = (req, res) => {
     const winRatio = sanitize(req.body.winratio)
 
     DbService((db) => {
-        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount, (documentsReturned) => {
-            res.json({data:documentsReturned})
+        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount, () => {
+            res.json({
+                'success': true,
+                'message': 'it worked!',
+                'status': 200
+            })     
         })
     })
 }
