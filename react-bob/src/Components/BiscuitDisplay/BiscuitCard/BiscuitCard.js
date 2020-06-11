@@ -7,7 +7,7 @@ class BiscuitCard extends React.Component {
         super(props)
         this.state = {
             biscuitToBeDisplayed: {},
-            selected: false
+            status: "loser"
         }
         this.markSelected = this.markSelected.bind(this);
     }
@@ -24,51 +24,42 @@ class BiscuitCard extends React.Component {
         }
     }
 
-
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.BiscuitSelected !== prevProps.BiscuitSelected) {
-    //         this.setState({
-    //             biscuitToBeDisplayed: this.props.BiscuitSelected
-    //         })
-    //     }
-    // }
-
     markSelected = () => {
         this.props.generateNewCards()
-        // console.log(this)
-        // this.setState({
-        //     selected: true
-        // }, () => {
-        //     this.cardSelected()
-        // })
+         this.setState({
+             status: "winner"
+        }, () => {
+            this.sendInfo()
+        })
     }
 
-    cardSelected = () => {
-        console.log(this.state.selected)
-        //this.markSelected()
-        //this.props.generateNewCards()
-        if (this.state.selected) {
-            let win = this.state.biscuitToBeDisplayed.wincount++
-            let compared = this.state.biscuitToBeDisplayed.comparisoncount++
-            this.setState = ({
-                wincount: win,
-                comparisoncount: compared
-            })
-        } else {
-            let compared = this.state.biscuitToBeDisplayed.comparisoncount++
-            this.setState = ({
-                comparisoncount: compared
-            })
+    sendInfo = () => {
+        console.log(this.state.status)
+        if (this.state.status == "winner") {
+            this.sendWinner()
         }
-        console.log(this.state.biscuitToBeDisplayed.comparisoncount)
-        console.log(this.state.biscuitToBeDisplayed.wincount)
-        console.log(this.state.selected)
-        // some function to calculate win ratio?
+        // } else {
+            // this.sendLoser()
+        // }
+    }
+
+    sendWinner = () => {
+        fetch("http://localhost:9000/biscuits/winner", {
+            "method": "PUT",
+            "body": JSON.stringify({
+                name: this.state.biscuitToBeDisplayed.name,
+                comparisoncount: this.state.biscuitToBeDisplayed.comparisoncount,
+                wincount: this.state.biscuitToBeDisplayed.wincount
+            })
+        })
+        .then(response => response.json())
+        .then(response => {console.log(response);
+        })
     }
 
     render () {
         return (
-            <div className="biscuitCard" onClick={this.markSelected} >
+            <div className="biscuitCard" onClick={this.markSelected}>
                 <div className="image" style={{backgroundImage: "url(" + this.state.biscuitToBeDisplayed.img + ")"}} alt="biscuit"></div>
                 <h3>{this.state.biscuitToBeDisplayed.name}</h3>
                 <h3>Recommended Dunking Time: {this.state.biscuitToBeDisplayed.RDT} seconds</h3>
