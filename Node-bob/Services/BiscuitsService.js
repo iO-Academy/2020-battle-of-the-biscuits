@@ -32,11 +32,7 @@ const getFourToTenBiscuits = (db, callback) => {
 const putWinnerBiscuit = (db, biscuitName, comparisonCount, winCount) => {
     let collection = db.collection('biscuits')
     //updates by biscuit winratio, comparisoncount and wincount by given name
-<<<<<<< HEAD
-    collection.updateOne({name: biscuitName}, {$set: {comparisoncount: comparisonCount, wincount: winCount}})
-=======
     collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}})
->>>>>>> 2023195cbaf6a5cd254bf5c65972185fdc0a1637
 }
 
 //update db with the losing biscuit (updates win ratio and comparison count)
