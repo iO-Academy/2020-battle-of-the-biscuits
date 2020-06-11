@@ -9,14 +9,14 @@ class Biscuit extends React.Component {
         super(props)
         this.state = {
             allBiscuits:[],
-            // top3Biscuits:[],
-            // fourToTenBiscuits:[]
+            topThreeBiscuits:[],
+            fourToTenBiscuits:[]
         }
 
         //populates biscuits with data from api to create an array of objects
         this.allBiscuits()
-        // this.top3Biscuits()
-        // this.fourToTenBiscuits()
+        this.topThreeBiscuits()
+        this.fourToTenBiscuits()
     }
 
     allBiscuits = () => {
@@ -29,32 +29,32 @@ class Biscuit extends React.Component {
             })
     }
 
-    // top3Biscuits = () => {
-    //     fetch('http://localhost:9000/biscuits/topthree')
-    //     .then(data => data.json())
-    //         .then((data) => {
-    //             this.setState ({
-    //                 top3Biscuits: data
-    //             })
-    //         })
-    // }
+    topThreeBiscuits = () => {
+        fetch('http://localhost:9000/biscuits/topthree')
+        .then(data => data.json())
+            .then((data) => {
+                this.setState ({
+                    topThreeBiscuits: data.data
+                })
+            })
+    }
 
-    // fourToTenBiscuits = () => {
-    //     fetch('http://localhost:9000/biscuits/fourtoten)
-    //     .then(data => data.json())
-    //         .then((data) => {
-    //             this.setState ({
-    //                 fourToTenBiscuits: data
-    //             })
-    //         })
-    // }
+    fourToTenBiscuits = () => {
+        fetch('http://localhost:9000/biscuits/fourtoten')
+        .then(data => data.json())
+            .then((data) => {
+                this.setState ({
+                    fourToTenBiscuits: data.data
+                })
+            })
+    }
 
     render() {
         return (
             <div>
                 <Header />
                 <BiscuitDisplay allBiscuits={this.state.allBiscuits}/>
-                {/* <LeaderboardDisplay top3={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/> */}
+                <LeaderboardDisplay topThreeBiscuits={this.state.top3Biscuits} fourToTenBiscuits={this.state.fourToTenBiscuits}/>
             </div>
         )
     }

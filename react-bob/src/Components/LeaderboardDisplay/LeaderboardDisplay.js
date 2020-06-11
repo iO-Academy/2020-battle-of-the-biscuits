@@ -2,7 +2,23 @@ import React from 'react'
 import Header from '../Header/Header'
 
 class LeaderboardDisplay extends React.Component {
-    render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+        topThree: [],
+        fourToTen: []
+    }
+}
+
+componentDidUpdate(prevProps) {
+    if (this.props.allBiscuits !== prevProps.allBiscuits) {
+        this.setState({
+            biscuitsToDisplay: this.props.allBiscuits
+        })
+    }
+}
+  
+  render () {
         return (
           <div>          
             <Header />
