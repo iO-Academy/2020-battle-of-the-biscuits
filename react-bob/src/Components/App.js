@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.scss'
+import Header from './Header/Header'
 import BiscuitDisplay from './BiscuitDisplay/BiscuitDisplay'
 import LeaderboardDisplay from './LeaderboardDisplay/LeaderboardDisplay'
 
@@ -23,7 +24,7 @@ class Biscuit extends React.Component {
         .then(data => data.json())
             .then((data) => {
                 this.setState ({
-                    allBiscuits: data
+                    allBiscuits: data.data
                 })
             })
     }

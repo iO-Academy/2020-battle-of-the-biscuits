@@ -1,7 +1,6 @@
 import React from 'react'
 import './BiscuitDisplay.scss'
 import BiscuitCard from './BiscuitCard/BiscuitCard'
-import Header from '../Header/Header'
 
 class BiscuitDisplay extends React.Component {
     constructor(props) {
