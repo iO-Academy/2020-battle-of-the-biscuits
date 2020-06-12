@@ -36,8 +36,9 @@ const getFourToTenBiscuits = (req, res) => {
 const putWinnerBiscuit = (req, res) => {
     const name = sanitize(req.body.name)
     console.log(typeof name)
-    const winCount = sanitize(req.body.wincount)
     const comparisonCount = sanitize(req.body.comparisoncount)
+    const winCount = sanitize(req.body.wincount)
+    
     // const winRatio = sanitize(req.body.winratio)
 
     let newWinCount = updateScores (winCount)
@@ -45,9 +46,9 @@ const putWinnerBiscuit = (req, res) => {
     let newWinRatio = winRatioCalculate(newWinCount, newComparisonCount)
 
     //needs checking
-    DbService((db) => {
-        BiscuitsService.putWinnerBiscuit(db, name, newWinRatio, newComparisonCount, newWinCount, () => {
-            res.json({
+    return DbService((db) => {
+        return BiscuitsService.putWinnerBiscuit(db, name, newWinRatio, newComparisonCount, newWinCount, () => {
+            return res.json({
                 'success': true,
                 'message': 'it worked!',
                 'status': 200
@@ -61,9 +62,9 @@ const putLoserBiscuit = (req, res) => {
     const comparisonCount = sanitize(req.body.comparisoncount)
     const winRatio = sanitize(req.body.winratio)
 
-    DbService((db) => {
-        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount, () => {
-            res.json({
+    return DbService((db) => {
+        return BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount, () => {
+            return res.json({
                 'success': true,
                 'message': 'it worked!',
                 'status': 200
@@ -86,4 +87,3 @@ module.exports.getTopThreeBiscuits = getTopThreeBiscuits
 module.exports.getFourToTenBiscuits = getFourToTenBiscuits
 module.exports.putWinnerBiscuit = putWinnerBiscuit
 module.exports.putLoserBiscuit = putLoserBiscuit
-

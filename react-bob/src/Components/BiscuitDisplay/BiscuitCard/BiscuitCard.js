@@ -15,7 +15,7 @@ class BiscuitCard extends React.Component {
             this.setState({
                 biscuitToBeDisplayed: this.props.BiscuitSelected
             }, () => {
-                if (this.state.biscuitToBeDisplayed.name == prevState.biscuitToBeDisplayed.name) {
+                if (this.state.biscuitToBeDisplayed.name === prevState.biscuitToBeDisplayed.name) {
                     this.props.generateNewCards()
                 }
             })
