@@ -1,6 +1,6 @@
 import React from 'react'
-// import './GoToBiscuitBtn.scss'
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
+import './GoToBiscuitsBtn.scss'
+import {Link} from 'react-router-dom'
 
 
 class GoToBiscuitBtn extends React.Component {

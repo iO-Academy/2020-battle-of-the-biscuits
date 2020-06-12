@@ -1,6 +1,6 @@
 import React from 'react'
-// import './GoToLeaderboardBtn.scss'
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
+import './GoToLeaderboard.scss'
+import {Link} from 'react-router-dom'
 
 class GoToLeaderboardBtn extends React.Component {
     render () {
