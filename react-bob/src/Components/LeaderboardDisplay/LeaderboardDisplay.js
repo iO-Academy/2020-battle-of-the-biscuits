@@ -9,7 +9,7 @@ class LeaderboardDisplay extends React.Component {
     let j = 3
     return (
       <div>
-        <h3>Top Ten Leaderboard</h3>
+        <h3 className="heading">Top Ten Leaderboard</h3>
         <div className="leaderboard">
           <div className="leaderboard_headings">
             <p className="position">Position</p>

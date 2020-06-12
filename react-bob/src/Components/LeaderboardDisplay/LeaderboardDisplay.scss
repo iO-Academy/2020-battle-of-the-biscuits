@@ -1,8 +1,12 @@
+.heading {
+  font-size: 44px;
+}
+
 .leaderboard {
-  width: 50%;
+  width: 60%;
   border: #034485 solid 2px;
-  background-color: #fafafa;
-  margin: 3em auto;
+  background: linear-gradient(to bottom, #f7f7f7 0%, #e6e6e6 5%);
+  margin: 4rem auto 2rem auto;
 
   .leaderboard_headings {
     display: flex;
@@ -19,6 +23,7 @@
     .row {
       display: flex;
       justify-content: space-between;
+      // border-top: 2px solid #034485;
 
       .biscuit0,
       .biscuit1,
@@ -28,17 +33,19 @@
       }
 
       .biscuit0 {
-        background-color: #e6c210;
+        background: linear-gradient(to bottom, #ebc341 0%, #d4af37 60%, #ae8e24 100%);
         width: 100%;
       }
 
       .biscuit1 {
+        background: linear-gradient(to bottom, #dfdfdf 0%, #bfbfbf 60%, #9b9b9b 100%);
         background-color: #bfbfbf;
         width: 100%;
       }
 
       .biscuit2 {
         background-color: #c47600;
+        background: linear-gradient(to bottom, rgb(245, 184, 93) 0%, rgb(201, 140, 48) 60%, #c47600 100%);
         width: 100%;
       }
     }
@@ -49,6 +56,7 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
+      background: linear-gradient(to bottom, #f7f7f7 0%, #e6e6e6 100%);
 
       .biscuit0,
       .biscuit1,
@@ -57,13 +65,48 @@
       .biscuit4,
       .biscuit5,
       .biscuit6 {
-        padding: 20px 0;
+        padding: 25px 0;
         width: 100%;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .leaderboard {
+    width: 90%;
+    margin: 2rem auto;
+
+    .top3 {
+      .row {
+        .biscuit0,
+        .biscuit1,
+        .biscuit2 {
+          padding: 25px 0;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .fourToTen {
+      .row {
+        .biscuit0,
+        .biscuit1,
+        .biscuit2,
+        .biscuit3,
+        .biscuit4,
+        .biscuit5,
+        .biscuit6 {
+          padding: 18px 0;
+          font-size: 18px;
+        }
       }
     }
   }
 
-  @media only screen and (max-width: 500px) {
-    width: 90%;
+  .heading {
+    font-size: 30px;
+    margin: 0px 5%;
   }
 }
