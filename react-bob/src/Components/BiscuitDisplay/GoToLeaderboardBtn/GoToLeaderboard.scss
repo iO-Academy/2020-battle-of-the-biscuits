@@ -1,0 +1,28 @@
+.buttonsContainer {
+    .leaderboardButton {
+        width: 15%;
+        color: #034485;
+        background-color: #C5DF95;
+        border: #034485 solid 2px;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 5em;
+        font-family: 'Delius Swash Caps', cursive;
+    }
+    .leaderboardButton:hover, .leaderboardButton:active {
+        color: #C5DF95;
+        background-color: #034485;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .buttonsContainer {
+        .leaderboardButton {
+            width: 50%;
+        }
+    }
+}
