@@ -76,8 +76,7 @@ const putLoserBiscuit = (req, res) => {
 
 const winRatioCalculate = (winCount, comparisonCount) => {
     let result = ((winCount/comparisonCount) * 100)
-    return result
-    // .toFixed(1)
+    return result.toFixed(1)
 }
 
 module.exports.getAllBiscuits = getAllBiscuits
