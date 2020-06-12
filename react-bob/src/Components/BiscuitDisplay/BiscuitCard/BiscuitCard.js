@@ -17,7 +17,7 @@ class BiscuitCard extends React.Component {
             this.setState({
                 biscuitToBeDisplayed: this.props.BiscuitSelected
             }, () => {
-                if (this.state.biscuitToBeDisplayed.name == prevState.biscuitToBeDisplayed.name) {
+                if (this.state.biscuitToBeDisplayed.name === prevState.biscuitToBeDisplayed.name) {
                     this.props.generateNewCards()
                 }
             })
@@ -35,7 +35,7 @@ class BiscuitCard extends React.Component {
 
     sendInfo = () => {
         console.log(this.state.status)
-        if (this.state.status == "winner") {
+        if (this.state.status === "winner") {
             this.sendWinner()
         }
         // } else {
@@ -46,6 +46,7 @@ class BiscuitCard extends React.Component {
     sendWinner = () => {
         fetch("http://localhost:9000/biscuits/winner", {
             "method": "PUT",
+            "headers": {"Content-Type": "application/json"},
             "body": JSON.stringify({
                 name: this.state.biscuitToBeDisplayed.name,
                 comparisoncount: this.state.biscuitToBeDisplayed.comparisoncount,
@@ -53,7 +54,7 @@ class BiscuitCard extends React.Component {
             })
         })
         .then(response => response.json())
-        .then(response => {console.log(response);
+        .then(response => {console.log(response)
         })
     }
 

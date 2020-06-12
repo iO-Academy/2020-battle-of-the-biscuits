@@ -29,17 +29,19 @@ const getFourToTenBiscuits = (db, callback) => {
 }
 
 //update db with the winning biscuit (updates win ratio, win count and comparison count)
-const putWinnerBiscuit = (db, biscuitName, comparisonCount, winCount) => {
+const putWinnerBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount, cb) => {
     let collection = db.collection('biscuits')
     //updates by biscuit winratio, comparisoncount and wincount by given name
     collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}})
+    return cb()
 }
 
 //update db with the losing biscuit (updates win ratio and comparison count)
-const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount) => {
+const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount, cb) => {
     let collection = db.collection('biscuits')
     //updates by biscuit winratio and comparisoncount by given name
     collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount}})
+    return cb()
 }
 
 module.exports.getAllBiscuits = getAllBiscuits
