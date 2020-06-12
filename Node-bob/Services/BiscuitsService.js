@@ -37,10 +37,10 @@ const putWinnerBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount, 
 }
 
 //update db with the losing biscuit (updates win ratio and comparison count)
-const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount, cb) => {
+const putLoserBiscuit = (db, biscuitName, winRatio, comparisonCount, winCount, cb) => {
     let collection = db.collection('biscuits')
     //updates by biscuit winratio and comparisoncount by given name
-    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount}})
+    collection.updateOne({name: biscuitName}, {$set: {winratio: winRatio, comparisoncount: comparisonCount, wincount: winCount}})
     return cb()
 }
 

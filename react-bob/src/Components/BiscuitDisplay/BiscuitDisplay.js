@@ -25,37 +25,37 @@ class BiscuitDisplay extends React.Component {
     }
 
     sendWinner = (index) => {
-        console.log(index)
-        // fetch("http://localhost:9000/biscuits/winner", {
-        //     "method": "PUT",
-        //     "body": JSON.stringify({
-        //         name: this.state.biscuitsToDisplay.[index].name,
-        //         comparisoncount: this.state.biscuitsToDisplay.[index].comparisoncount,
-        //         wincount: this.state.biscuitsToDisplay.[index].wincount
-        //     })
-        // })
-        // .then(response => response.json())
-        // .then(response => {console.log(response);
-        // })
+        console.log(this.state.biscuitsToDisplay)
+        fetch("http://localhost:9000/biscuits/winner", {
+            "method": "PUT",
+            "headers": {"Content-Type": "application/json"},
+            "body": JSON.stringify({
+                name: this.state.biscuitsToDisplay[index].name,
+                comparisoncount: this.state.biscuitsToDisplay[index].comparisoncount,
+                wincount: this.state.biscuitsToDisplay[index].wincount
+            })
+        })
+        .then(response => response.json())
+        .then(response => {console.log(response)
+        })
     }
-    sendLoser = (otherIndex) => {
-        console.log(otherIndex)
-        // fetch("http://localhost:9000/biscuits/winner", {
-        //     "method": "PUT",
-        //     "body": JSON.stringify({
-        //         name: this.state.biscuitsToDisplay.[otherIndex].name,
-        //         comparisoncount: this.state.biscuitsToDisplay.[otherIndex].comparisoncount,
-        //         wincount: this.state.biscuitsToDisplay.[otherIndex].wincount
-        //     })
-        // })
-        // .then(response => response.json())
-        // .then(response => {console.log(response);
-        // })
-    }
-    handleClick() {
-        console.log('Click happened');
-      }
 
+
+    sendLoser = (otherIndex) => {
+        fetch("http://localhost:9000/biscuits/loser", {
+            "method": "PUT",
+            "headers": {"Content-Type": "application/json"},
+            "body": JSON.stringify({
+                name: this.state.biscuitsToDisplay[otherIndex].name,
+                comparisoncount: this.state.biscuitsToDisplay[otherIndex].comparisoncount,
+                wincount: this.state.biscuitsToDisplay[otherIndex].wincount
+            })
+        })
+        .then(response => response.json())
+        .then(response => {console.log(response)
+        })
+    }
+    
     render () {
         return (
             <div className="App">
