@@ -34,7 +34,6 @@ const getFourToTenBiscuits = (req, res) => {
 
 //updates the url specified task with the status specified in the body
 const putWinnerBiscuit = (req, res) => {
-    console.log(req.body)
     let name = sanitize(req.body.name)
     let comparisonCount = parseFloat(sanitize(req.body.comparisoncount))
     let winCount = parseFloat(sanitize(req.body.wincount))
