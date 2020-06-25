@@ -11,12 +11,27 @@ class BiscuitDisplay extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.allBiscuits !== prevProps.allBiscuits) {
-            this.setState({
-                biscuitsToDisplay: this.props.allBiscuits
-            })
+        console.log(prevProps)
+        if (this.props.allBiscuits != prevProps.allBiscuits) {
+            if (prevProps.allBiscuits.length != 0) {
+                console.log(this.props.allBiscuits[0].name)
+                console.log(prevProps.allBiscuits[1].name)
+                if ((this.props.allBiscuits[0].name !== prevProps.allBiscuits[1].name) && (this.props.allBiscuits[1].name !== prevProps.allBiscuits[0].name)) {
+                    this.setState({
+                        biscuitsToDisplay: this.props.allBiscuits
+                    })
+                } else {
+                    this.props.generateNewCards()
+                }
+            } else {
+                this.setState({
+                    biscuitsToDisplay: this.props.allBiscuits
+                })
+            }
         }
     }
+
+
 
     markSelected = (index, otherIndex) => {
         this.sendWinner(index)
