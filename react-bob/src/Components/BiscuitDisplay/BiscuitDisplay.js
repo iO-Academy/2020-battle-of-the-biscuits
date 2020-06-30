@@ -11,10 +11,20 @@ class BiscuitDisplay extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.allBiscuits !== prevProps.allBiscuits) {
-            this.setState({
-                biscuitsToDisplay: this.props.allBiscuits
-            })
+        if (this.props.allBiscuits != prevProps.allBiscuits) {
+            if (prevProps.allBiscuits.length != 0) {
+                if ((this.props.allBiscuits[0].name !== prevProps.allBiscuits[1].name) && (this.props.allBiscuits[1].name !== prevProps.allBiscuits[0].name)) {
+                    this.setState({
+                        biscuitsToDisplay: this.props.allBiscuits
+                    })
+                } else {
+                    this.props.generateNewCards()
+                }
+            } else {
+                this.setState({
+                    biscuitsToDisplay: this.props.allBiscuits
+                })
+            }
         }
     }
 
