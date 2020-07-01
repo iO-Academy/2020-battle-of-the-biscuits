@@ -4,7 +4,7 @@
   "description": "project template repo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
     "mongo-sanitize": "^1.1.0",
     "mongodb": "^3.5.8",
     "shuffle-array": "^1.0.1"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"  
   }
 }

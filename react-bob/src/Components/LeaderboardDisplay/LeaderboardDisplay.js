@@ -2,7 +2,6 @@ import React from 'react'
 import GoToBiscuitBtn from './GoToBiscuitsBtn/GoToBiscuitsBtn'
 import './LeaderboardDisplay.scss'
 
-
 class LeaderboardDisplay extends React.Component {
   render() {
     let i = 0

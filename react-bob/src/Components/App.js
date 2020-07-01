@@ -14,6 +14,10 @@ class Biscuit extends React.Component {
         this.allBiscuits()
     }
 
+    componentDidMount() {
+        this.allBiscuits()
+    }
+
     allBiscuits = () => {
         fetch('http://localhost:9000/biscuits/')
         .then(data => data.json())
@@ -28,7 +32,7 @@ class Biscuit extends React.Component {
         return (
             <div>
                 <Header />
-                <BiscuitDisplay allBiscuits={this.state.allBiscuits}/>
+                <BiscuitDisplay allBiscuits={this.state.allBiscuits} generateNewCards={this.allBiscuits}/>
                 <GoToLeaderboardBtn />
             </div>
         )

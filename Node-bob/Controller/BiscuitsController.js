@@ -34,14 +34,19 @@ const getFourToTenBiscuits = (req, res) => {
 
 //updates the url specified task with the status specified in the body
 const putWinnerBiscuit = (req, res) => {
-    const name = sanitize(req.body.name)
-    const winCount = sanitize(req.body.wincount)
-    const comparisonCount = sanitize(req.body.comparisoncount)
-    const winRatio = sanitize(req.body.winratio)
+    let name = sanitize(req.body.name)
+    let comparisonCount = parseFloat(sanitize(req.body.comparisoncount))
+    let winCount = parseFloat(sanitize(req.body.wincount))
+    
+    winCount++
+    comparisonCount++
+
+    let newWinRatio = winRatioCalculate(winCount, comparisonCount)
+
     //needs checking
-    DbService((db) => {
-        BiscuitsService.putWinnerBiscuit(db, name, winRatio, comparisonCount, winCount, () => {
-            res.json({
+    return DbService((db) => {
+        return BiscuitsService.putWinnerBiscuit(db, name, newWinRatio, comparisonCount, winCount, () => {
+            return res.json({
                 'success': true,
                 'message': 'it worked!',
                 'status': 200
@@ -51,13 +56,15 @@ const putWinnerBiscuit = (req, res) => {
 }
 
 const putLoserBiscuit = (req, res) => {
-    const name = sanitize(req.body.name)
-    const comparisonCount = sanitize(req.body.comparisoncount)
-    const winRatio = sanitize(req.body.winratio)
+    let name = sanitize(req.body.name)
+    let comparisonCount = parseFloat(sanitize(req.body.comparisoncount))
+    let winCount = parseFloat(sanitize(req.body.wincount))
+    comparisonCount++
+    let newWinRatio = winRatioCalculate(winCount, comparisonCount)
 
-    DbService((db) => {
-        BiscuitsService.putLoserBiscuit(db, name, winRatio, comparisonCount, () => {
-            res.json({
+    return DbService((db) => {
+        return BiscuitsService.putLoserBiscuit(db, name, newWinRatio, comparisonCount, winCount, () => {
+            return res.json({
                 'success': true,
                 'message': 'it worked!',
                 'status': 200
@@ -66,9 +73,19 @@ const putLoserBiscuit = (req, res) => {
     })
 }
 
+const winRatioCalculate = (winCount, comparisonCount) => {
+    if (comparisonCount == 0) {
+        let result = 0
+        return result
+    } else {
+    let result = ((winCount/comparisonCount) * 100)
+    return result.toFixed(1)
+    }
+}
+
 module.exports.getAllBiscuits = getAllBiscuits
 module.exports.getTopThreeBiscuits = getTopThreeBiscuits
 module.exports.getFourToTenBiscuits = getFourToTenBiscuits
 module.exports.putWinnerBiscuit = putWinnerBiscuit
 module.exports.putLoserBiscuit = putLoserBiscuit
-
+module.exports.winRatioCalculate = winRatioCalculate
