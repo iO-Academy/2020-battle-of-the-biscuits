@@ -7,7 +7,7 @@ const getAllBiscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getAllBiscuits(db, (documentsReturned) => {
-            res.json({data:documentsReturned})
+            res.json({ data: documentsReturned })
         })
     })
 }
@@ -17,7 +17,7 @@ const getTopThreeBiscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getTopThreeBiscuits(db, (documentsReturned) => {
-            res.json({data:documentsReturned})
+            res.json({ data: documentsReturned })
         })
     })
 }
@@ -27,7 +27,7 @@ const getFourToTenBiscuits = (req, res) => {
 
     DbService((db) => {
         BiscuitsService.getFourToTenBiscuits(db, (documentsReturned) => {
-            res.json({data:documentsReturned})
+            res.json({ data: documentsReturned })
         })
     })
 }
@@ -37,7 +37,7 @@ const putWinnerBiscuit = (req, res) => {
     let name = sanitize(req.body.name)
     let comparisonCount = parseFloat(sanitize(req.body.comparisoncount))
     let winCount = parseFloat(sanitize(req.body.wincount))
-    
+
     winCount++
     comparisonCount++
 
@@ -68,7 +68,7 @@ const putLoserBiscuit = (req, res) => {
                 'success': true,
                 'message': 'it worked!',
                 'status': 200
-            })     
+            })
         })
     })
 }
@@ -78,8 +78,8 @@ const winRatioCalculate = (winCount, comparisonCount) => {
         let result = 0
         return result
     } else {
-    let result = ((winCount/comparisonCount) * 100)
-    return result.toFixed(1)
+        let result = ((winCount / comparisonCount) * 100)
+        return parseFloat(result.toFixed(1))
     }
 }
 
